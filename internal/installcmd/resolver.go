@@ -3,6 +3,7 @@ package installcmd
 import (
 	"fmt"
 	"os"
+	"path/filepath"
 
 	"github.com/gentleman-programming/gentle-ai/internal/model"
 	"github.com/gentleman-programming/gentle-ai/internal/system"
@@ -124,9 +125,10 @@ func resolveGGAInstall(profile system.PlatformProfile) (CommandSequence, error) 
 		}, nil
 	case "winget":
 		// On Windows, use Git Bash (bundled with Git for Windows) to run the install script.
+		cloneDst := filepath.Join(os.TempDir(), "gentleman-guardian-angel")
 		return CommandSequence{
-			{"git", "clone", "https://github.com/Gentleman-Programming/gentleman-guardian-angel.git", os.TempDir() + "\\gentleman-guardian-angel"},
-			{"bash", os.TempDir() + "\\gentleman-guardian-angel\\install.sh"},
+			{"git", "clone", "https://github.com/Gentleman-Programming/gentleman-guardian-angel.git", cloneDst},
+			{"bash", filepath.Join(cloneDst, "install.sh")},
 		}, nil
 	default:
 		return nil, fmt.Errorf(

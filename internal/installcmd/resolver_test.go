@@ -2,6 +2,7 @@ package installcmd
 
 import (
 	"os"
+	"path/filepath"
 	"reflect"
 	"testing"
 
@@ -234,8 +235,8 @@ func TestResolveComponentInstall(t *testing.T) {
 			profile:   system.PlatformProfile{OS: "windows", PackageManager: "winget"},
 			component: model.ComponentGGA,
 			want: CommandSequence{
-				{"git", "clone", "https://github.com/Gentleman-Programming/gentleman-guardian-angel.git", os.TempDir() + "\\gentleman-guardian-angel"},
-				{"bash", os.TempDir() + "\\gentleman-guardian-angel\\install.sh"},
+				{"git", "clone", "https://github.com/Gentleman-Programming/gentleman-guardian-angel.git", filepath.Join(os.TempDir(), "gentleman-guardian-angel")},
+				{"bash", filepath.Join(os.TempDir(), "gentleman-guardian-angel", "install.sh")},
 			},
 		},
 		{

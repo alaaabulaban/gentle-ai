@@ -24,26 +24,41 @@ You generate or update the **skill registry** — a catalog of all available ski
 
 ### Step 1: Scan User Skills
 
-1. Glob for `*/SKILL.md` files in the user's skills directory. Try these paths in order (use the first that exists):
-   - `~/.claude/skills/`
-   - `~/.config/opencode/skills/`
-   - The parent directory of this skill file
+1. Glob for `*/SKILL.md` files across ALL known skill directories. Check every path below — scan ALL that exist, not just the first match:
+
+   **User-level (global skills):**
+   - `~/.claude/skills/` — Claude Code
+   - `~/.config/opencode/skills/` — OpenCode
+   - `~/.gemini/skills/` — Gemini CLI
+   - `~/.cursor/skills/` — Cursor
+   - `~/.copilot/skills/` — VS Code Copilot
+   - The parent directory of this skill file (catch-all for any tool)
+
+   **Project-level (workspace skills):**
+   - `{project-root}/.claude/skills/` — Claude Code
+   - `{project-root}/.gemini/skills/` — Gemini CLI
+   - `{project-root}/.agent/skills/` — Antigravity (workspace)
+   - `{project-root}/skills/` — Generic
+
 2. **SKIP `sdd-*` and `_shared`** — those are SDD workflow skills, not coding/task skills
 3. Also **SKIP `skill-registry`** — that's this skill
-4. For each skill found, read only the frontmatter (first 10 lines) to extract:
+4. **Deduplicate** — if the same skill name appears in multiple locations, keep the project-level version (more specific). If both are user-level, keep the first found.
+5. For each skill found, read only the frontmatter (first 10 lines) to extract:
    - `name` field
    - `description` field → extract the trigger text (after "Trigger:" in the description)
-5. Build a table of: Trigger | Skill Name | Full Path
+6. Build a table of: Trigger | Skill Name | Full Path
 
 ### Step 2: Scan Project Conventions
 
-1. Check the project root for a conventions index file. Look for (in priority order):
+1. Check the project root for convention files. Look for:
    - `agents.md` or `AGENTS.md`
    - `CLAUDE.md` (only project-level, not `~/.claude/CLAUDE.md`)
    - `.cursorrules`
    - `GEMINI.md`
    - `copilot-instructions.md`
-2. Record ALL found files (a project can have multiple)
+2. **If an index file is found** (e.g., `agents.md`, `AGENTS.md`): READ its contents and extract all referenced file paths. These index files typically list project conventions with paths — extract every referenced path and include it in the registry table alongside the index file itself.
+3. For non-index files (`.cursorrules`, `CLAUDE.md`, etc.): record the file directly.
+4. The final table should include the index file AND all paths it references — zero extra hops for sub-agents.
 
 ### Step 3: Write the Registry
 
@@ -63,12 +78,13 @@ As your FIRST step before starting any work, identify and load skills relevant t
 
 ## Project Conventions
 
-| File | Path |
-|------|------|
-| {filename} | {path relative to project root} |
-| ... | ... |
+| File | Path | Notes |
+|------|------|-------|
+| {index file} | {path} | Index — references files below |
+| {referenced file} | {extracted path} | Referenced by {index file} |
+| {standalone file} | {path} | |
 
-Read any project convention files listed above for project-specific patterns and rules.
+Read the convention files listed above for project-specific patterns and rules. All referenced paths have been extracted — no need to read index files to discover more.
 ```
 
 ### Step 4: Persist the Registry

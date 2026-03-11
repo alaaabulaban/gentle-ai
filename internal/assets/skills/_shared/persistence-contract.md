@@ -155,7 +155,7 @@ Run the `skill-registry` skill, or run `sdd-init` (which includes registry gener
    - Creating a Jira task? → load jira-task
    - Writing tests? → load pytest/playwright
 5. Read those specific SKILL.md files
-6. Also read any project convention files listed in the registry
+6. Also read any project convention files listed in the registry (index files are already expanded — all referenced paths are in the table)
 7. THEN proceed with your actual task
 ```
 

